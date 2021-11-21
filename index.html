@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/all.css"></link>
+    <title>Product Filter</title>
+</head>
+<body>
+    <div class="add-trip-wrapper">
+        <div class="add-trip-card">
+            <div class="image-group">
+                <img src="./assets/main-image.png" alt="main-image">
+                <img class="image-slogan" src="./assets/slogan.png" alt="Slogan-Let's Travel">
+            </div>
+            <form class="add-trip-form">
+                <div class="title">新增旅遊套票</div>
+                <div class="form-input">
+                    <label for="name">套票名稱</label>
+                    <input type="text" id="name" placeholder="請填寫套票名稱">
+                </div>
+                <div class="form-input">
+                    <label for="imgUrl">圖片網址</label>
+                    <input type="text" id="imgUrl" placeholder="請填寫圖片網址">
+                </div>
+                <div class="form-input">
+                    <label for="area">景點地區</label>
+                    <select id="area" placeholder="請選擇景點地區">
+                        <option value="臺北">臺北</option>
+                        <option value="台中">台中</option>
+                        <option value="高雄">高雄</option>
+                    </select>
+                </div>
+                <div class="form-input">
+                    <label for="price">套票金額</label>
+                    <input type="text" id="price" placeholder="請選擇套票金額">
+                </div>
+                <div class="form-input">
+                    <label for="group">套票組數</label>
+                    <input type="text" id="group" placeholder="請填寫套票組數">
+                </div>
+                <div class="form-input">
+                    <label for="rate">套票星級</label>
+                    <input type="text" id="rate" placeholder="請填寫套票星級">
+                </div>
+                <div class="form-input">
+                    <label for="description">套票描述</label>
+                    <textarea id="description" maxlength="100" placeholder="請填寫套票描述（限 100 字）"></textarea>
+                </div>
+                <button type="submit" class="btn">新增套票</button>
+            </form>
+        </div>
+    </div>
+    <div class="results">
+        <div class="area-select">
+            <div id="area-filter">
+                <select name="area-filter" onchange="filterCards(value)">
+                    <option disabled selected>地區搜尋</option>
+                    <option value="all">全部地區</option>
+                    <option value="台北">台北</option>
+                    <option value="台中">台中</option>
+                    <option value="高雄">高雄</option>
+                </select>
+            </div>
+            <div class="select-info">本次搜尋共 6 筆資料</div>
+        </div>
+        <div class="trip-cards"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

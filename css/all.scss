@@ -1,0 +1,248 @@
+@import "./style.scss";
+
+/* --------------------------------------- */
+/* Global */
+/* --------------------------------------- */
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+* {
+  font-family: $font-family-noto-sans, Helvetica, sans-serif, Arial;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+button.btn {
+  border: none;
+}
+input,
+select,
+textarea {
+  @include textGray;
+  background-color: $color--white;
+  padding: 8px 12px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.2s;
+  &:focus {
+    border-bottom: 1px solid $color--primary-light;
+  }
+}
+//*TODO: change style of select arrow
+select {
+  cursor: pointer;
+  appearance: none;
+  // background: url(../assets/arrow-down.svg) no-repeat right;
+  // background-size: 40%;
+  background-position-x: calc(100% - 12px);
+  background-position-y: 100%;
+
+  //*TODO: drop down option bgc needs to be white
+  option {
+    background: transparent !important;
+    background-color: white;
+  }
+}
+
+/* --------------------------------------- */
+/* Components */
+/* --------------------------------------- */
+.add-trip-wrapper {
+  .add-trip-card {
+    @include card;
+    @include flex;
+    margin: 120px auto;
+    max-width: 920px;
+    padding: 60px 95px;
+    .image-group,
+    .add-trip-form {
+      flex: 1;
+    }
+    .add-trip-form {
+      @include flex(normal, flex-start, column);
+      flex-wrap: wrap;
+      gap: 16px;
+      & > * {
+        width: 100%;
+      }
+      .title {
+        @include textPrimary(24px, 33px);
+      }
+      .form-input {
+        @include flex(space-between);
+        padding: 8px 0;
+
+        label {
+          @include textPrimary;
+          flex: 1;
+        }
+        input,
+        select,
+        textarea {
+          flex: 3;
+          border-bottom: 1px solid $color--primary-dark;
+          color: black;
+        }
+        select option {
+          background-color: white;
+          &:hover {
+            background-color: $color--white;
+          }
+        }
+        textarea {
+          height: 120px;
+          resize: none;
+        }
+      }
+      .btn {
+        margin-left: auto;
+        @include button;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .add-trip-wrapper {
+    padding: 32px;
+    .add-trip-card {
+      flex-direction: column;
+      .image-group {
+        margin-left: auto;
+        margin-right: auto;
+        .image-slogan {
+          display: none;
+        }
+      }
+      .add-trip-form {
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .add-trip-wrapper {
+    padding: 16px;
+    .add-trip-card {
+      padding: 16px;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .add-trip-wrapper {
+    .add-trip-card {
+      .add-trip-form {
+        .form-input {
+          flex-direction: column;
+          label {
+            margin-bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.results {
+  background-color: $color--gray-bg;
+  margin: 0 auto;
+  padding: 56px;
+  .area-select {
+    // border: 1px solid #000;
+    @include flex(center, center);
+    gap: 30px;
+    #area-filter {
+      flex: 1;
+      select {
+        display: block;
+        border: 1px solid $color--gray;
+        width: 255px;
+      }
+    }
+    .select-info {
+      flex: 3;
+      color: $color--gray;
+    }
+  }
+  .trip-cards {
+    margin-top: 44px;
+    @include flex(center);
+    gap: 30px;
+    .trip-card {
+      @include card;
+      margin-top: 38px;
+      .top {
+        position: relative;
+        .city-tag {
+          font-size: 20px;
+          background-color: $color--primary-light;
+          color: white;
+          padding: 8px 20px;
+          width: 80px;
+          height: 44px;
+          line-height: 24px;
+          border-radius: 4px;
+          position: absolute;
+          top: -12px;
+          left: 0;
+          z-index: 50;
+        }
+      }
+      .bottom {
+        padding: 20px;
+        .rate-tag {
+          @include titleText;
+          background-color: $color--primary-dark;
+          color: white;
+          padding: 5px 8px;
+          height: 32px;
+          width: 39px;
+          position: absolute;
+          top: -18px;
+          left: 0;
+          z-index: 50;
+        }
+        .card-title {
+          @include textPrimary;
+          font-size: 24px;
+          line-height: 33px;
+          margin-bottom: 20px;
+          &::after {
+            content: "";
+            width: 100%;
+            height: 3px;
+            background-color: $color--primary-dark;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+          }
+        }
+        .card-description {
+          @include textGray;
+          margin-bottom: 22px;
+          height: 144px;
+        }
+        .card-info {
+          @include flex(space-between, center);
+
+          .info {
+            @include textPrimary;
+          }
+          .price {
+            @include textPrimaryBig;
+            span {
+              font-weight: normal;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

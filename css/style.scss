@@ -1,0 +1,84 @@
+// ---- Color ---- //
+$color--primary-light: #64c3bf;
+$color--white: #fafafa;
+$color--primary-dark: #00807e;
+$color--gray: #818a91;
+$color--gray-bg: #f7f7f7;
+
+// ---- Font/text values ---- //
+$font-family-noto-sans: Noto Sans, Helvetica, sans-serif, arial;
+$font-family-roboto: Roboto, Helvetica, sans-serif, arial;
+$font-style-normal: normal;
+$font-weight-medium: 500;
+$font-weight-normal: normal;
+$font-size-16: 16px;
+$font-size-32: 32px;
+$character-spacing-0: 0px;
+$line-spacing-22: 22px;
+$line-spacing-43: 43px;
+
+// ---- Mixin ---- //
+@mixin flex($jc: normal, $ai: normal, $dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jc;
+  align-items: $ai;
+  flex-wrap: wrap;
+}
+@mixin card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 12px;
+  max-width: 350px;
+}
+
+@mixin textPrimary($font-size: $font-size-16, $ls: $line-spacing-22) {
+  font-family: $font-family-noto-sans;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-medium;
+  font-size: $font-size;
+  line-height: $ls;
+  letter-spacing: $character-spacing-0;
+  color: $color--primary-dark;
+}
+
+@mixin textPrimaryBig {
+  font-family: $font-family-roboto;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-32;
+  line-height: $line-spacing-43;
+  letter-spacing: $character-spacing-0;
+  color: $color--primary-dark;
+}
+@mixin textGray {
+  font-family: $font-family-noto-sans;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-16;
+  line-height: $line-spacing-22;
+  letter-spacing: $character-spacing-0;
+  color: $color--gray;
+}
+
+@mixin titleText {
+  font-family: $font-family-noto-sans;
+  font-style: $font-style-normal;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-16;
+  line-height: $line-spacing-22;
+  letter-spacing: $character-spacing-0;
+  color: $color--primary-dark;
+}
+
+@mixin button($w: 160px, $h: 48px, $color: $color--primary-dark) {
+  width: $w;
+  height: $h;
+  color: white;
+  background-color: $color;
+  font-family: $font-family-noto-sans;
+  font-size: 20px;
+  line-height: 25px;
+  border-radius: 4.8px;
+  cursor: pointer;
+}
